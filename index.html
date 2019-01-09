@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Box Challenge</title>
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+    <title>Box Challenge | jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-
-    <p>Box 1</p>
-
-    <div id="box" style="height:150px; width:175px; background-color:red; margin:25px">
-       
-        <form name="randform">
-            <input type="button" value="Generate" onClick="randomString();">&nbsp;
-            <input type="text" name="randomfield" value="">
-            </form>
-            <script>
-                function randomString() {
-                    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz3$$@#$@@#$$##@";
-                    var string_length = 18;
-                    var randomstring = '';
-                    for (var i=0; i<string_length; i++) {
-                        var rnum = Math.floor(Math.random() * chars.length);
-                        randomstring += chars.substring(rnum,rnum+1);
-                    }
-                    document.randform.randomfield.value = randomstring;
-                }
-                </script>
-    </div>
-   
-    <button id="button2">Green</button>
-    <button id="button4">Reset</button>
-
     
-    <p>Box 2</p>
+    
+        <p>Box 1</p>
 
-    <div id="box2" style="height:150px; width:175px; background-color:blue; margin:25px">
+        <div id="box" style="height:150px; width:175px">
+           
+            <form name="randform">
+                <input type="button" value="Generate" onClick="randomString();">&nbsp;
+                <input type="text" name="randomfield" value="">
+                </form>
+                <script>
+                    function randomString() {
+                        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz3$$@#$@@#$$##@";
+                        var string_length = 18;
+                        var randomstring = '';
+                        for (var i=0; i<string_length; i++) {
+                            var rnum = Math.floor(Math.random() * chars.length);
+                            randomstring += chars.substring(rnum,rnum+1);
+                        }
+                        document.randform.randomfield.value = randomstring;
+                    }
+                    </script>
+        </div>
+       
+        <button id="button2">Green</button>
+        <button id="button4">Reset</button>
+
+
+        <p>Box 2</p>
+
+    <div id="box2" style="height:150px; width:175px; margin:25px">
         
             <form name="randform2">
                     <input type="button" value="Generate" onClick="randomString2();">&nbsp;
@@ -58,7 +61,26 @@
     <button id="btn4">Reset</button>
 
 
-    <script type="text/javascript" src="javascript.js"></script>
+   
+
+
+    <script>
+        //box1
+        $('#button2').on('click', function(){
+            $('#box').css('background-color', 'green');
+        })
+        $('#button4').on('click', function(){
+            $('#box').css('background-color', 'red');
+        })
+        
+        //box2 
+        $('#btn2').on('click', function(){
+            $('#box2').css('background-color', 'yellow');
+        })
+        $('#btn4').on('click', function(){
+            $('#box2').css('background-color', 'blue');
+        })
+    </script>
 
 </body>
 </html>
