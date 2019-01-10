@@ -67,10 +67,7 @@
     <button id="btn2">Yellow</button>
     <button id="btn4">Reset</button>
 
-
-
-
-
+    
     <script>
 
         //box1
@@ -89,10 +86,6 @@
     });
 };
 
-$('.one').on('click', function () {
-    alert(true);
-});
-
 $('#button-1').click(function () {
     $('.one').swap('.two');
 });
@@ -101,7 +94,6 @@ $('#button-2').click(function () {
     $('.two').swap('.three');
 });
 
-     
         //box2 
         $('#btn2').on('click', function(){
             $('#box2').css('background-color', 'yellow');
