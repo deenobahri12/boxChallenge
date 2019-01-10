@@ -4,14 +4,13 @@
     <title>Box Challenge | jquery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     
     
         <p>Box 1</p>
 
-        <div id="box" style="height:150px; width:175px">
+        <div id="box" class='one' style="height:150px; width:175px">
            
             <form name="randform">
                 <input type="button" value="Generate" onClick="randomString();">&nbsp;
@@ -30,29 +29,37 @@
                     }
                     </script>
         </div>
-       
+     
         <button id="button2">Green</button>
         <button id="button4">Reset</button>
-
-
-        <p>Box 2</p>
-
-    <div id="box2" style="height:150px; width:175px; margin:25px">
         
-            <form name="randform2">
-                    <input type="button" value="Generate" onClick="randomString2();">&nbsp;
-                    <input type="text" name="randomfield2" value="">
+
+        <p>Mid Box </p>
+
+        <div id="midBox" class='two' style="height:150px; width:175px">
+        </div>
+        <input type="button" id='button-1' value='UP &uarr;' />
+        <input type="button" id='button-2'value='DOWN &darr;' />
+
+
+        <p>Box 3</p>
+
+    <div id="box2" class='three' style="height:150px; width:175px;">
+        
+            <form name="randform3">
+                    <input type="button" value="Generate" onClick="randomString3();">&nbsp;
+                    <input type="text" name="randomfield3" value="">
                     </form>
                     <script>
-                        function randomString2() {
+                        function randomString3() {
                             var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz@#$%#@@#$$";
                             var string_length = 18;
-                            var randomstring = '';
+                            var randomstring3 = '';
                             for (var i=0; i<string_length; i++) {
                                 var rnum = Math.floor(Math.random() * chars.length);
-                                randomstring += chars.substring(rnum,rnum+1);
+                                randomstring3 += chars.substring(rnum,rnum+1);
                             }
-                            document.randform2.randomfield2.value = randomstring;
+                            document.randform3.randomfield3.value = randomstring3;
                         }
                         </script>
     </div>
@@ -61,10 +68,11 @@
     <button id="btn4">Reset</button>
 
 
-   
+
 
 
     <script>
+
         //box1
         $('#button2').on('click', function(){
             $('#box').css('background-color', 'green');
@@ -72,7 +80,28 @@
         $('#button4').on('click', function(){
             $('#box').css('background-color', 'red');
         })
-        
+
+        //middle Box
+        $.fn.swap = function (elem) {
+    elem = elem.jquery ? elem : $(elem);
+    return this.each(function () {
+        $(document.createTextNode('')).insertBefore(this).before(elem.before(this)).remove();
+    });
+};
+
+$('.one').on('click', function () {
+    alert(true);
+});
+
+$('#button-1').click(function () {
+    $('.one').swap('.two');
+});
+
+$('#button-2').click(function () {
+    $('.two').swap('.three');
+});
+
+     
         //box2 
         $('#btn2').on('click', function(){
             $('#box2').css('background-color', 'yellow');
@@ -81,6 +110,7 @@
             $('#box2').css('background-color', 'blue');
         })
     </script>
+
 
 </body>
 </html>
